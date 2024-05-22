@@ -43,9 +43,8 @@
                 @Html.DisplayFor(modelItem => item.Imagen)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "Details", new {  id=item.IdCoche }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Favorito", "SeleccionarFavorito", new { idcoche=item.IdCoche })
             </td>
         </tr>
 }

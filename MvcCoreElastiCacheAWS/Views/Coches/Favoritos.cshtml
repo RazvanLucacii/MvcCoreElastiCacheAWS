@@ -1,0 +1,57 @@
+﻿@model IEnumerable<MvcCoreElastiCacheAWS.Models.Coche>
+
+@{
+    ViewData["Title"] = "Favoritos";
+}
+
+<h1>Favoritos</h1>
+
+@if(Model != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.IdCoche)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Marca)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Modelo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Imagen)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdCoche)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Marca)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Modelo)
+                </td>
+                <td>
+                    <img src="@Html.DisplayFor(modelItem => item.Imagen)" style="width:100px; height:80px" />
+                </td>
+                <td>
+                    <a class="btn btn-danger" asp-action="DeleteFavorito" asp-controller="Coches" asp-route-IdCoche="@item.IdCoche">
+                        Eliminar Favorito
+                    </a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>
+}
+else
+{
+    <h2>No hay coches Favoritos.</h2>
+}
